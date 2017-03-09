@@ -1,0 +1,40 @@
+spring:
+  profiles: mysql
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/htdevteam?autoReconnect=true&useSSL=false
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQLInnoDBDialect
+      ddl-auto: update # todo: in non-dev environments, comment this out:
+      
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
+    
+employee.service:
+  name: 'test profile'
+
+spring.jmx:
+   enabled: false
+
+server:
+  port: 9999
+
+project:
+  name: spring-boot-restapi-rabbitmq-integration
+  version: 0.1
+  description: Demo project to integrate spring boot - restapi integration with RabbitMQ
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+version: ${project.version}
